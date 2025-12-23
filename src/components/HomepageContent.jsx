@@ -38,13 +38,14 @@ export default function HomepageContent() {
 
           {/* Right: Company Image */}
           <div className="flex justify-center">
-            <img
-              src={office}
-              alt="NexTech Team and Office"
-              src={office}
-                  alt="NexTech Team and Office"
-                  className="max-w-full md:max-w-5xl lg:max-w-6xl mx-auto h-auto object-cover rounded-2xl shadow-2xl shadow-cyan-500/60 border-4 border-cyan-500/30"
-            />
+            <video
+              controls
+              className="max-w-full md:max-w-5xl lg:max-w-6xl mx-auto h-auto rounded-2xl shadow-2xl shadow-cyan-500/60 border-4 border-cyan-500/30"
+              poster={office}  // Optional: use your team.png as thumbnail
+            >
+              <source src="/Video/companyVideo.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
 

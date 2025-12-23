@@ -19,17 +19,17 @@ export default function NavBar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-lg border-b border-cyan-500/20">
       <nav className="container mx-auto px-6 py-5 flex justify-between items-center">
-        {/* Logo - Left */}
+        {/* Logo */}
         <Link to="/">
           <h1
             className="text-3xl md:text-4xl font-bold text-cyan-400 cursor-pointer tracking-wider"
-            style={{ textShadow: "0 0 15px #00ffff, 0 0 30px #b300ff" }}
+            style={{ textShadow: "0 0 15px #00fff7, 0 0 30px #b300ff" }}
           >
             NexTech
           </h1>
         </Link>
 
-        {/* Desktop Menu - Top Right */}
+        {/* Desktop Menu */}
         <ul className="hidden md:flex items-center space-x-8 text-white text-lg font-medium">
           {menuItems.map((item, index) => (
             <li key={item.path} className="flex items-center">
@@ -46,7 +46,7 @@ export default function NavBar() {
           ))}
         </ul>
 
-        {/* Mobile Hamburger - Right */}
+        {/* Mobile Hamburger */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden text-cyan-400 text-3xl focus:outline-none"
