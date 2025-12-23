@@ -1,15 +1,20 @@
 // src/components/HomepageContent.jsx
-import office from "../assets/office.jpg"; // Your team/office photo
-// import building from "../assets/building.jpg"; // Use this if you prefer the building
+import office from "../assets/team.png"; // Your team/office photo
+import building from "../assets/building.jpg"; // Use this if you prefer the building
 
 export default function HomepageContent() {
   return (
     <section className="py-24 bg-black">
       <div className="container mx-auto px-6 max-w-7xl">
-        {/* About Label - Centered */}
-        <p className="text-center text-cyan-400 text-sm uppercase tracking-widest font-medium mb-8">
-          About NexTech
-        </p>
+
+        {/* Building Image - Centered above the title */}
+                <div className="mb-20 text-center">
+                  <img
+                    src={building}
+                    alt="NexTech Building / Futuristic City"
+                    className="max-w-full md:max-w-5xl lg:max-w-6xl mx-auto h-auto object-cover rounded-2xl shadow-2xl shadow-cyan-500/60 border-4 border-cyan-500/30"
+                  />
+                </div>
 
         {/* Centered Title */}
         <h2 className="text-5xl md:text-6xl font-bold text-center leading-tight mb-20">
@@ -32,11 +37,13 @@ export default function HomepageContent() {
           </div>
 
           {/* Right: Company Image */}
-          <div className="flex justify-center md:justify-end">
+          <div className="flex justify-center">
             <img
               src={office}
               alt="NexTech Team and Office"
-              className="rounded-2xl shadow-2xl shadow-cyan-500/40 border-4 border-cyan-500/30 max-w-full h-auto object-cover"
+              src={office}
+                  alt="NexTech Team and Office"
+                  className="max-w-full md:max-w-5xl lg:max-w-6xl mx-auto h-auto object-cover rounded-2xl shadow-2xl shadow-cyan-500/60 border-4 border-cyan-500/30"
             />
           </div>
         </div>
