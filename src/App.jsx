@@ -1,23 +1,29 @@
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import MissionVision from "./components/MissionVision";
-import Services from "./components/Services";
-import Team from "./components/Team";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+// src/App.jsx
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/NavBar";
+import Home from "./components/Home";
+
+// Temporary placeholder pages (create real ones later)
+const Placeholder = ({ title }) => (
+  <div className="container mx-auto px-6 py-20 text-center">
+    <h1 className="text-5xl font-bold text-cyan-400 mb-8" style={{ textShadow: "0 0 15px #00fff7" }}>
+      {title}
+    </h1>
+    <p className="text-xl text-gray-300">This page is under development.</p>
+  </div>
+);
 
 export default function App() {
-    return (
-        <>
-            <Navbar />
-            <Hero />
-            <About />
-            <MissionVision />
-            <Services />
-            <Team />
-            <Contact />
-            <Footer />
-        </>
-    );
+  return (
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<Placeholder title="About Us" />} />
+        <Route path="/services" element={<Placeholder title="Our Services" />} />
+        <Route path="/faqs" element={<Placeholder title="FAQs" />} />
+        <Route path="/contact" element={<Placeholder title="Contact Us" />} />
+      </Routes>
+    </>
+  );
 }

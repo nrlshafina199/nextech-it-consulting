@@ -1,20 +1,33 @@
-import building from "../assets/building.jpg";
+// src/components/Hero.jsx
+import cityscape from "../assets/building.jpg";
 
 export default function Hero() {
-    return (
-        <section className="flex flex-col md:flex-row items-center justify-between px-12 py-24 bg-darkBg text-gray-100">
-            <div className="md:w-1/2 mb-8 md:mb-0 animate-fade-in">
-                <h1 className="text-6xl font-bold text-neonCyan mb-6">NexTech IT Consulting</h1>
-                <p className="text-lg mb-6 text-gray-300">
-                    Delivering futuristic IT solutions for businesses with neon-glow innovation and digital transformation.
-                </p>
-                <a href="#contact" className="bg-neonCyan text-darkBg px-6 py-3 rounded-lg hover:shadow-neonCyan hover:scale-105 transition-all">
-                    Get in Touch
-                </a>
-            </div>
-            <div className="md:w-1/2">
-                <img src={building} alt="Office Building" className="rounded-xl shadow-lg shadow-neonCyan animate-pulse-slow"/>
-            </div>
-        </section>
-    );
+  return (
+    <section className="relative h-screen flex items-center justify-center pt-28">
+      {/* Background Image */}
+      <div className="absolute inset-0 -z-10">
+        <img
+          src={cityscape}
+          alt="Futuristic Cityscape"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-transparent"></div>
+      </div>
+
+      {/* Hero Text */}
+      <div className="text-center px-6 max-w-5xl">
+        <h1
+          className="text-5xl md:text-7xl font-bold text-cyan-400 mb-6 tracking-wider"
+          style={{ textShadow: "0 0 30px #00fff7, 0 0 60px #b300ff" }}
+        >
+          NexTech IT Consulting
+        </h1>
+
+        <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
+          Delivering futuristic IT solutions for businesses with neon-glow innovation
+          and digital transformation.
+        </p>
+      </div>
+    </section>
+  );
 }
