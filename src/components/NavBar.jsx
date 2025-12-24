@@ -23,7 +23,7 @@ export default function NavBar() {
         <Link to="/">
           <h1
             className="text-3xl md:text-4xl font-bold text-cyan-400 cursor-pointer tracking-wider"
-            style={{ textShadow: "0 0 15px #00fff7, 0 0 30px #b300ff" }}
+            style={{ textShadow: "0 0 15px #ff99ff, 0 0 30px #b300ff" }}
           >
             NexTech
           </h1>
