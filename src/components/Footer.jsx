@@ -1,7 +1,22 @@
+import React from "react";
+
 export default function Footer() {
     return (
-        <footer className="px-12 py-6 bg-gray-900 text-gray-100 border-t border-cyan-400 text-center">
-            &copy; 2025 NexTech IT Consulting. All rights reserved.
+        <footer style={{
+            padding: "80px 24px",
+            textAlign: "center",
+            borderTop: "1px solid whitesmoke",
+            backgroundColor: "white" // Ensures it matches your gray/black/white theme
+        }}>
+            <p style={{
+                color: "darkgray",
+                fontSize: "14px",
+                letterSpacing: "2px",
+                fontFamily: "'Space Grotesk', sans-serif",
+                margin: 0
+            }}>
+                NEXTECH IT CONSULTING &copy; 2025. ALL RIGHTS RESERVED.
+            </p>
         </footer>
     );
 }

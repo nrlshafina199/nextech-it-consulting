@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/NavBar";
 import Footer from "./components/Footer";  // ← Added this import
 import Home from "./components/Home";
+import Services from "./components/Services"
 
 // Temporary placeholder pages
 const Placeholder = ({ title }) => (
@@ -24,7 +25,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<Placeholder title="About Us" />} />
-          <Route path="/services" element={<Placeholder title="Our Services" />} />
+          <Route path="/services" element={<Services/>} />
           <Route path="/faqs" element={<Placeholder title="FAQs" />} />
           <Route path="/contact" element={<Placeholder title="Contact Us" />} />
         </Routes>

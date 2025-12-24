@@ -1,79 +1,154 @@
-// src/components/NavBar.jsx
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import logo from "../assets/organization_logo.jpg"; // Import your logo image
 
 export default function NavBar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
+    const [isOpen, setIsOpen] = useState(false);
+    const [hoveredPath, setHoveredPath] = useState(null);
+    const location = useLocation();
 
-  const menuItems = [
-    { label: "Home", path: "/" },
-    { label: "About", path: "/about" },
-    { label: "Services", path: "/services" },
-    { label: "FAQs", path: "/faqs" },
-    { label: "Contact Us", path: "/contact" },
-  ];
+    const menuItems = [
+        { label: "Home", path: "/" },
+        { label: "About", path: "/about" },
+        { label: "Services", path: "/services" },
+        { label: "FAQs", path: "/faqs" },
+        { label: "Contact Us", path: "/contact" },
+    ];
 
-  const isActive = (path) => location.pathname === path;
+    const styles = {
+        header: {
+            position: "fixed",
+            top: "0",
+            left: "0",
+            width: "100%",
+            height: "90px",
+            backgroundColor: "white",
+            borderBottom: "1px solid lightgray",
+            zIndex: 2000,
+            display: "flex",
+            alignItems: "center",
+            fontFamily: "'Space Grotesk', sans-serif",
+        },
+        navWrapper: {
+            width: "100%",
+            maxWidth: "1400px",
+            margin: "0 auto",
+            padding: "0 40px",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+        },
+        logoContainer: {
+            display: "flex",
+            alignItems: "center",
+            height: "60px", // Limits logo height to keep it professional
+        },
+        logoImg: {
+            height: "100%",
+            width: "auto",
+            objectFit: "contain",
+            // Optional: grayscale to match your theme
+            // filter: "grayscale(100%)",
+        },
+        menuList: {
+            display: "flex",
+            listStyle: "none",
+            margin: 0,
+            padding: 0,
+        },
+        link: (path) => {
+            const active = location.pathname === path || hoveredPath === path;
+            return {
+                textDecoration: "none",
+                fontSize: "13px",
+                fontWeight: "700",
+                color: active ? "black" : "gray",
+                textTransform: "uppercase",
+                letterSpacing: "1.5px",
+                padding: "0 25px",
+                height: "90px",
+                display: "flex",
+                alignItems: "center",
+                transition: "all 0.3s ease",
+                borderTop: location.pathname === path ? "5px solid black" : "5px solid transparent",
+                backgroundColor: hoveredPath === path ? "whitesmoke" : "transparent",
+            };
+        },
+        mobileBtn: {
+            background: "none",
+            border: "none",
+            fontSize: "28px",
+            cursor: "pointer",
+            color: "black",
+        }
+    };
 
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-lg border-b border-cyan-500/20">
-      <nav className="container mx-auto px-6 py-5 flex justify-between items-center">
-        {/* Logo */}
-        <Link to="/">
-          <h1
-            className="text-3xl md:text-4xl font-bold text-cyan-400 cursor-pointer tracking-wider"
-            style={{ textShadow: "0 0 15px #ff99ff, 0 0 30px #b300ff" }}
-          >
-            NexTech
-          </h1>
-        </Link>
-
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex items-center space-x-8 text-white text-lg font-medium">
-          {menuItems.map((item, index) => (
-            <li key={item.path} className="flex items-center">
-              <Link
-                to={item.path}
-                className={`hover:text-cyan-300 transition-colors duration-300 ${isActive(item.path) ? "text-cyan-300" : ""}`}
-              >
-                {item.label}
-              </Link>
-              {index < menuItems.length - 1 && (
-                <span className="mx-5 text-cyan-400 text-xl">•</span>
-              )}
-            </li>
-          ))}
-        </ul>
-
-        {/* Mobile Hamburger */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-cyan-400 text-3xl focus:outline-none"
-          style={{ textShadow: "0 0 12px #00fff7" }}
-        >
-          {isOpen ? "✕" : "☰"}
-        </button>
-      </nav>
-
-      {/* Mobile Dropdown */}
-      {isOpen && (
-        <div className="md:hidden bg-black/95 border-t border-cyan-500/30">
-          <ul className="container mx-auto px-6 py-8 space-y-6 text-center">
-            {menuItems.map((item) => (
-              <li key={item.path}>
-                <Link
-                  to={item.path}
-                  onClick={() => setIsOpen(false)}
-                  className={`text-xl block hover:text-cyan-300 transition-colors ${isActive(item.path) ? "text-cyan-300" : "text-white"}`}
-                >
-                  {item.label}
+    return (
+        <header style={styles.header}>
+            <div style={styles.navWrapper}>
+                {/* LOGO IMAGE REPLACES THE TEXT HERE */}
+                <Link to="/" style={styles.logoContainer}>
+                    <img
+                        src={logo}
+                        alt="NexTech Logo"
+                        style={styles.logoImg}
+                    />
                 </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </header>
-  );
+
+                {/* Desktop Links */}
+                <ul className="hidden md:flex" style={styles.menuList}>
+                    {menuItems.map((item) => (
+                        <li key={item.path}>
+                            <Link
+                                to={item.path}
+                                onMouseEnter={() => setHoveredPath(item.path)}
+                                onMouseLeave={() => setHoveredPath(null)}
+                                style={styles.link(item.path)}
+                            >
+                                {item.label}
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+
+                {/* Mobile Toggle */}
+                <button onClick={() => setIsOpen(!isOpen)} className="md:hidden" style={styles.mobileBtn}>
+                    {isOpen ? "✕" : "☰"}
+                </button>
+            </div>
+
+            {/* Mobile Dropdown */}
+            {isOpen && (
+                <div style={{
+                    position: "absolute",
+                    top: "90px",
+                    left: "0",
+                    width: "100%",
+                    backgroundColor: "white",
+                    borderBottom: "2px solid black",
+                    padding: "20px 0",
+                    textAlign: "center"
+                }}>
+                    {menuItems.map((item) => (
+                        <Link
+                            key={item.path}
+                            to={item.path}
+                            onClick={() => setIsOpen(false)}
+                            style={{
+                                display: "block",
+                                padding: "15px",
+                                textDecoration: "none",
+                                color: "black",
+                                fontWeight: "bold",
+                                fontSize: "16px",
+                                textTransform: "uppercase"
+                            }}
+                        >
+                            {item.label}
+                        </Link>
+                    ))}
+                </div>
+            )}
+        </header>
+    );
 }
