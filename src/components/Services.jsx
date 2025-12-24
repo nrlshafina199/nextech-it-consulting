@@ -72,11 +72,11 @@ export default function Services() {
     const services = [
         {
             title: "System Analysis & Problem Identification",
-            desc: "We analyze our clients' existing systems and business processes to identify technical issues and inefficiencies."
+            desc: "We analyze our client's existing systems and business processes to identify technical issues and inefficiencies."
         },
         {
             title: "Technology Planning & Solution Design",
-            desc: "We design and recommend appropriate IT solutions that align with our clients' business objectives."
+            desc: "We design and recommend appropriate IT solutions that align with our client's business objectives."
         },
         {
             title: "System Implementation & Management",
@@ -94,7 +94,7 @@ export default function Services() {
             <section style={styles.headerSection}>
                 <div style={styles.headerContainer}>
                     <h1 style={styles.mainTitle}>
-                        IT <span style={{ fontWeight: "800" }}>Consulting</span>
+                        <span style={{ fontWeight: "800" }}>What we do</span>
                     </h1>
                     <div style={styles.accentBar}></div>
                 </div>

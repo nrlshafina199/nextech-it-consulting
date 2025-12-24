@@ -21,15 +21,15 @@ export default function App() {
       <Navbar />
 
       {/* Main content */}
-      <main className="min-h-screen">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<Placeholder title="About Us" />} />
-          <Route path="/services" element={<Services/>} />
-          <Route path="/faqs" element={<Placeholder title="FAQs" />} />
-          <Route path="/contact" element={<Placeholder title="Contact Us" />} />
-        </Routes>
-      </main>
+        <main className="min-h-screen" style={{ paddingTop: "90px", backgroundColor: "white" }}>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<Placeholder title="About Us" />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/faqs" element={<Placeholder title="FAQs" />} />
+                <Route path="/contact" element={<Placeholder title="Contact Us" />} />
+            </Routes>
+        </main>
 
       <Footer />
     </>

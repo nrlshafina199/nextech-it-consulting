@@ -1,5 +1,5 @@
 // src/components/Hero.jsx
-import cityscape from "../assets/organization_logo.jpg";  // Your city image
+import cityscape from "../assets/IT CONSULTANT.png";  // Your city image
 
 export default function Hero() {
   return (

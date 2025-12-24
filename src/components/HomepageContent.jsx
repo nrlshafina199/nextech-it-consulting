@@ -1,5 +1,3 @@
-// src/components/HomepageContent.jsx
-import office from "../assets/team.png"; // Your team/office photo
 import building from "../assets/building.jpg"; // Building image
 
 export default function HomepageContent() {
