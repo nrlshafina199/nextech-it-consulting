@@ -6,7 +6,7 @@ export default function Footer() {
             padding: "80px 24px",
             textAlign: "center",
             borderTop: "1px solid whitesmoke",
-            backgroundColor: "white" // Ensures it matches your gray/black/white theme
+            backgroundColor: "white"
         }}>
             <p style={{
                 color: "darkgray",

@@ -61,7 +61,7 @@ export default function Services() {
 
         titleHover: {
             color: "black",
-            fontWeight: "800", xt bold
+            fontWeight: "800"
         },
         descHover: {
             color: "dimgray",

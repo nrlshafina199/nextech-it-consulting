@@ -1,5 +1,4 @@
-// src/components/Hero.jsx
-import cityscape from "../assets/IT CONSULTANT.png";  // Your city image
+import cityscape from "../assets/IT CONSULTANT.png";
 
 export default function Hero() {
   return (

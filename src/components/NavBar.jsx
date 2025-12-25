@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "../assets/website logo.png"; // Import your logo image
+import logo from "../assets/website logo.png";
 
 export default function NavBar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -41,14 +41,13 @@ export default function NavBar() {
         logoContainer: {
             display: "flex",
             alignItems: "center",
-            height: "60px", // Limits logo height to keep it professional
+            height: "60px",
         },
         logoImg: {
             height: "100%",
             width: "auto",
             objectFit: "contain",
-            // Optional: grayscale to match your theme
-            // filter: "grayscale(100%)",
+
         },
         menuList: {
             display: "flex",
@@ -86,7 +85,6 @@ export default function NavBar() {
     return (
         <header style={styles.header}>
             <div style={styles.navWrapper}>
-                {/* LOGO IMAGE REPLACES THE TEXT HERE */}
                 <Link to="/" style={styles.logoContainer}>
                     <img
                         src={logo}

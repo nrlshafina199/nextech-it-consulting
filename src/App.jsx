@@ -1,17 +1,16 @@
-// src/App.jsx
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/NavBar";
-import Footer from "./components/Footer";  // ← Added this import
+import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Services from "./components/Services"
 
 // Temporary placeholder pages
 const Placeholder = ({ title }) => (
-  <div className="container mx-auto px-6 py-20 text-center">
-    <h1 className="text-5xl font-bold text-cyan-400 mb-8" style={{ textShadow: "0 0 15px #00fff7" }}>
+  <div className="flex flex-col items-center justify-center min-h-[60vh] bg-white px-6 text-center font-grotesk">
+    <h1 className="text-5xl md:text-6xl font-extrabold text-black uppercase tracking-tighter mb-4">
       {title}
     </h1>
-    <p className="text-xl text-gray-300">This page is under development.</p>
+    <p className="text-lg md:text-xl text-gray-500 uppercase tracking-widest font-medium">This page is under development.</p>
   </div>
 );
 
