@@ -1,8 +1,17 @@
 import shafina from "../assets/team/shafina.jpg";
+{/* import najihah from "../assets/team/najihah.jpg";
+import irdina from "../assets/team/irdina.jpg";
+import farahM from "../assets/team/farahM.jpg";
+import Pfarah from "../assets/team/Pfarah.jpg";
+ */}
 
 export default function Team() {
     const team = [
-        { name: "Nurul Shafina", role: "IT Consultant", photo: shafina },
+        { name: "Najihah", role: "CEO", photo: najihah },
+        { name: "Farah M", role: "CTO", photo: farahM },
+        { name: "Nurul Shafina Ashikin", role: "System Analyst", photo: shafina },
+        { name: "Irdina", role: "Network and Security Specialist", photo: irdina },
+        { name: "Putri Farah", role: "Software Developer", photo: Pfarah },
     ];
 
     return (

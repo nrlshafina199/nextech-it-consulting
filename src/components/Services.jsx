@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 export default function Services() {
-    // Track which item is hovered
     const [hoveredIndex, setHoveredIndex] = useState(null);
 
     const styles = {
@@ -45,27 +44,27 @@ export default function Services() {
             transition: "all 0.3s ease",
             cursor: "pointer",
         },
-        // TEXT COLORS - NORMAL STATE
+
         titleNormal: {
             fontSize: "26px",
             fontWeight: "400",
-            color: "darkgray", // Light gray family
+            color: "darkgray",
             transition: "all 0.3s ease",
             marginBottom: "12px",
         },
         descNormal: {
             fontSize: "18px",
-            color: "silver", // Even lighter gray
+            color: "silver",
             lineHeight: "1.6",
             transition: "all 0.3s ease",
         },
-        // TEXT COLORS - HOVER STATE
+
         titleHover: {
             color: "black",
-            fontWeight: "800", // Makes the text bold
+            fontWeight: "800", xt bold
         },
         descHover: {
-            color: "dimgray", // Darker gray for readability on hover
+            color: "dimgray",
         }
     };
 
