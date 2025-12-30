@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/NavBar";
 import Footer from "./components/Footer";
+import About from './components/About';
 import Home from "./components/Home";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
@@ -24,7 +25,7 @@ export default function App() {
         <main className="min-h-screen" style={{ paddingTop: "90px", backgroundColor: "white" }}>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/about" element={<Placeholder title="About Us" />} />
+                <Route path="/about" element={<About />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/faqs" element={<Placeholder title="FAQs" />} />
                 <Route path="/contact" element={<Contact />} />

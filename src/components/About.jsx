@@ -1,13 +1,66 @@
+import React from 'react';
+import Team from './Team';
+import MissionVision from './MissionVision';
+
 export default function About() {
+    const styles = {
+        wrapper: {
+            backgroundColor: "white",
+            minHeight: "100vh",
+            fontFamily: "'Space Grotesk', sans-serif",
+            color: "black",
+            paddingTop: "90px" // To clear your NavBar
+        },
+        headerSection: {
+            backgroundColor: "whitesmoke",
+            padding: "80px 24px",
+            borderBottom: "1px solid lightgray",
+            textAlign: "center"
+        },
+        mainTitle: {
+            fontSize: "48px",
+            fontWeight: "300",
+            color: "black",
+            margin: "0",
+        },
+        accentBar: {
+            width: "50px",
+            height: "5px",
+            backgroundColor: "black",
+            margin: "24px auto 0",
+        },
+        introText: {
+            maxWidth: "800px",
+            margin: "60px auto",
+            fontSize: "20px",
+            lineHeight: "1.8",
+            color: "dimgray",
+            textAlign: "center",
+            padding: "0 24px"
+        }
+    };
+
     return (
-        <section id="about" className="px-12 py-20 bg-gray-900 text-gray-200">
-            <h2 className="text-3xl font-bold mb-6 text-cyan-400">About NexTech</h2>
-            <p className="max-w-3xl text-lg mb-4">
-                NexTech is a futuristic IT consulting firm that provides software solutions, cloud integration, and cybersecurity for modern businesses. We leverage cutting-edge technologies to optimize operations, ensure digital security, and innovate business processes.
+        <div style={styles.wrapper}>
+            {/* Page Header */}
+            <section style={styles.headerSection}>
+                <h1 style={styles.mainTitle}>
+                    About <span style={{ fontWeight: "800" }}>NexTech</span>
+                </h1>
+                <div style={styles.accentBar}></div>
+            </section>
+
+            {/* Introduction */}
+            <p style={styles.introText}>
+                Founded by visionary computer science graduates, NexTech is a modern IT related company specializing in
+                software house operations, cloud integration, and cybersecurity for digital transformation.
             </p>
-            <p className="max-w-3xl text-lg">
-                Our clients range from startups to enterprises seeking to adopt the latest technology for sustainable growth.
-            </p>
-        </section>
+
+            {/* Background Sections */}
+            <MissionVision />
+
+            {/* Team Section */}
+            <Team />
+        </div>
     );
 }

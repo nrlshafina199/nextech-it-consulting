@@ -82,7 +82,7 @@ export default function NavBar() {
         }
     };
 
-    return (npmm
+    return (
         <header style={styles.header}>
             <div style={styles.navWrapper}>
                 <Link to="/" style={styles.logoContainer}>
