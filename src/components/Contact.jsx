@@ -78,7 +78,7 @@ export default function Contact() {
         },
          mapContainer: {
             width: "800px",          // fixed width
-            height: "96px",         // fixed height
+            height: "150px",         // fixed height
             margin: "40px auto",     // center horizontally with margin
             borderRadius: "8px",
             overflow: "hidden",
@@ -182,7 +182,7 @@ export default function Contact() {
             <div style={styles.mapContainer}>
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63550.188459950696!2d100.3686616517208!3d5.434163153495858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304ac5069ac06373%3A0xfd24d9999c7bb46a!2sButterworth%2C%20Penang!5e0!3m2!1sen!2smy!4v1767138074551!5m2!1sen!2smy"
-                    className="w-full h-96 rounded-lg border-0"
+                    className="w-full h-150 rounded-lg border-0"
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
