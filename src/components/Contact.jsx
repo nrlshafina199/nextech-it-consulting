@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
+import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaBriefcase } from "react-icons/fa";
+
 
 export default function Contact() {
 
@@ -153,10 +155,22 @@ export default function Contact() {
 
                 {/* Company Info*/}
                 <div style={styles.companyInfo}>
-                    <p><strong>Email:</strong> nexTech@itcompany.com.my</p>
-                    <p><strong>Phone:</strong> +6012-3456789</p>
-                    <p><strong>Address:</strong> Butterworth, Penang, Malaysia</p>
-                    <p><strong>Business Hours:</strong> 9am-6pm | Monday-Friday</p>
+                    <p style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '15px' }}>
+                        <FaEnvelope color="black" />
+                        nexTech@itcompany.com.my
+                    </p>
+                    <p style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '15px' }}>
+                        <FaPhoneAlt color="black" />
+                        +6012-3456789
+                    </p>
+                    <p style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '15px' }}>
+                        <FaMapMarkerAlt color="black" />
+                        Butterworth, Penang, Malaysia
+                    </p>
+                    <p style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '15px' }}>
+                        <FaBriefcase color="black" />
+                        9am-6pm | Monday-Friday
+                    </p>
                 </div>
             </div>
 
