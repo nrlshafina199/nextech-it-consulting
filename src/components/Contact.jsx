@@ -8,9 +8,10 @@ export default function Contact() {
 
             {/* Company Info */}
             <div className="max-w-lg mx-auto mb-10 text-gray-300 text-center">
-                <p><strong>Email:</strong> nexTechit@company.com.my</p>
-                <p><strong>Phone:</strong> +60 12-345-6789</p>
+                <p><strong>Email:</strong> nexTechIT@company.com.my</p>
+                <p><strong>Phone:</strong> +60 12-3456789</p>
                 <p><strong>Address:</strong> Butterworth, Penang, Malaysia</p>
+                <p><strong>Business Hours:</strong>  Monday-Friday || 9am- 6pm</p>
                </div>
 
             {/* Contact Form */}
