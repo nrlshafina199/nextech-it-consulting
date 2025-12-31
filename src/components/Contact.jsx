@@ -97,7 +97,7 @@ export default function Contact() {
 
         // basic validation
         if (!formData.name || !formData.email || !formData.message) {
-            alert("Please fill in all fields");
+            alert("Please fill in the required field(s).");
             return;
         }
 
@@ -111,7 +111,7 @@ export default function Contact() {
             message: ''
         });
 
-        alert("Message sent successfully!");
+        alert("Your message has been sent successfully!");
     };
 
     return (
@@ -131,6 +131,20 @@ export default function Contact() {
             </p>
 
             <div style={styles.contentRow}>
+
+                {/* Message Form */}
+                <form style={styles.form} className="flex flex-col gap-4" onSubmit={handleSubmit}>
+                    <p><strong>Name: </strong><span style={{ color: "red" }}>*</span></p>
+                    <input type="text" name="name" placeholder="Enter your name..." value={formData.name} onChange={handleChange} className="p-3 rounded-md bg-gray-800 text-gray-100"/>
+                    <p><strong>Email: </strong><span style={{ color: "red" }}>*</span></p>
+                    <input type="email" name="email" placeholder="Enter your email..." value={formData.email} onChange={handleChange} className="p-3 rounded-md bg-gray-800 text-gray-100"/>
+                    <p><strong>Subject:</strong></p>
+                    <input type="text" name="subject" placeholder="Enter the subject..." value={formData.subject} onChange={handleChange} className="p-3 rounded-md bg-gray-800 text-gray-100"/>
+                    <p><strong>Message: </strong><span style={{ color: "red" }}>*</span></p>
+                    <textarea name="message" placeholder="Enter your message..." rows="5" value={formData.message} onChange={handleChange} className="p-3 rounded-md bg-gray-800 text-gray-100"></textarea>
+                    <button type="submit" className="bg-cyan-400 text-gray-900 px-6 py-3 rounded-md hover:bg-cyan-600 transition self-center" style={{ marginTop: "30px" }}> Submit </button>
+                </form>
+
                 {/* Company Info*/}
                 <div style={styles.companyInfo}>
                     <p><strong>Email:</strong> nexTechIT@company.com.my</p>
@@ -138,19 +152,6 @@ export default function Contact() {
                     <p><strong>Address:</strong> Butterworth, Penang, Malaysia</p>
                     <p><strong>Business Hours:</strong>  Monday-Friday | 9am-6pm</p>
                 </div>
-
-                {/* Message Form */}
-                <form style={styles.form} className="flex flex-col gap-4" onSubmit={handleSubmit}>
-                    <p>Name: <span style={{ color: "red" }}>*</span></p>
-                    <input type="text" name="name" placeholder="Enter your name..." value={formData.name} onChange={handleChange} className="p-3 rounded-md bg-gray-800 text-gray-100"/>
-                    <p>Email: <span style={{ color: "red" }}>*</span></p>
-                    <input type="email" name="email" placeholder="Enter your email..." value={formData.email} onChange={handleChange} className="p-3 rounded-md bg-gray-800 text-gray-100"/>
-                    <p>Subject:</p>
-                    <input type="text" name="subject" placeholder="Enter the subject..." value={formData.subject} onChange={handleChange} className="p-3 rounded-md bg-gray-800 text-gray-100"/>
-                    <p>Message: <span style={{ color: "red" }}>*</span></p>
-                    <textarea name="message" placeholder="Enter your message..." rows="5" value={formData.message} onChange={handleChange} className="p-3 rounded-md bg-gray-800 text-gray-100"></textarea>
-                    <button type="submit" className="bg-cyan-400 text-gray-900 px-6 py-3 rounded-md hover:bg-cyan-600 transition self-center" style={{ marginTop: "30px" }}> Submit </button>
-                </form>
             </div>
 
             {/* Google Map */}
