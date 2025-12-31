@@ -1,4 +1,44 @@
+import React from 'react';
+import Team from './Team';
+
 export default function Contact() {
+    const styles = {
+            wrapper: {
+                backgroundColor: "white",
+                minHeight: "100vh",
+                fontFamily: "'Space Grotesk', sans-serif",
+                color: "black",
+                paddingTop: "90px"
+            },
+            headerSection: {
+                backgroundColor: "whitesmoke",
+                padding: "80px 24px",
+                borderBottom: "1px solid lightgray",
+                textAlign: "center"
+            },
+            mainTitle: {
+                fontSize: "48px",
+                fontWeight: "300",
+                color: "black",
+                margin: "0",
+            },
+            accentBar: {
+                width: "50px",
+                height: "5px",
+                backgroundColor: "black",
+                margin: "24px auto 0",
+            },
+            introText: {
+                maxWidth: "800px",
+                margin: "60px auto",
+                fontSize: "20px",
+                lineHeight: "1.8",
+                color: "dimgray",
+                textAlign: "center",
+                padding: "0 24px"
+            }
+        };
+
     return (
         <section id="contact" className="px-12 py-20 bg-gray-900 text-gray-100">
             <h2 className="text-3xl font-bold mb-6 text-cyan-400 text-center">Contact Us</h2>
@@ -11,7 +51,7 @@ export default function Contact() {
                 <p><strong>Email:</strong> nexTechIT@company.com.my</p>
                 <p><strong>Phone:</strong> +60 12-3456789</p>
                 <p><strong>Address:</strong> Butterworth, Penang, Malaysia</p>
-                <p><strong>Business Hours:</strong>  Monday-Friday || 9am- 6pm</p>
+                <p><strong>Business Hours:</strong>  Monday-Friday || 9am-6pm</p>
                </div>
 
             {/* Contact Form */}
