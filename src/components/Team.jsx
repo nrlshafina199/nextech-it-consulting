@@ -1,7 +1,7 @@
-const najihah = "https://via.placeholder.com/150";
+import najihah from "../assets/team/najihah.jpg";
 import irdina from "../assets/team/irdina.jpg";
-const farahM = "https://via.placeholder.com/150";
-const Pfarah = "https://via.placeholder.com/150";
+import farahM from "../assets/team/farahM.jpg";
+import Pfarah from "../assets/team/Pfarah.jpg";
 import shafina from "../assets/team/shafina.jpg";
 
 export default function Team() {
