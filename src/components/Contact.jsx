@@ -36,7 +36,7 @@ export default function Contact() {
             textAlign: "center",
         },
         companyInfo: {
-            margin: "70px 0 70px",
+            margin: "70px 50px 70px 0",
             flex: "1",
             fontSize: "20px",
             lineHeight: "1.8",
@@ -54,6 +54,12 @@ export default function Contact() {
             flex: "1",
             margin: "0 100px 10px",
             maxWidth: "500px",
+
+            backgroundColor: "whitesmoke",   // box background
+            padding: "30px",                 // space inside box
+            borderRadius: "12px",             // rounded corners
+            border: "1px solid lightgray",    // visible outline
+            boxShadow: "0 6px 20px rgba(0,0,0,0.08)", // optional depth
         },
         visitUs: {
             margin: "20px 0 10px",
@@ -147,10 +153,10 @@ export default function Contact() {
 
                 {/* Company Info*/}
                 <div style={styles.companyInfo}>
-                    <p><strong>Email:</strong> nexTechIT@company.com.my</p>
+                    <p><strong>Email:</strong> nexTech@itcompany.com.my</p>
                     <p><strong>Phone:</strong> +6012-3456789</p>
                     <p><strong>Address:</strong> Butterworth, Penang, Malaysia</p>
-                    <p><strong>Business Hours:</strong>  Monday-Friday | 9am-6pm</p>
+                    <p><strong>Business Hours:</strong> 9am-6pm | Monday-Friday</p>
                 </div>
             </div>
 
