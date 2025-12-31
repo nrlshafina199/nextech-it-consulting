@@ -7,24 +7,40 @@ const FAQ = () => {
 
     const faqData = [
         {
-            question: "What services does NexTech provide?",
-            answer: "We specialize in System Analysis, IoT Solutions, and Web Development for modern businesses."
+            question: "What core services does NexTech offer?",
+            answer: "We specialize in futuristic technologies including Cloud Integration, Cybersecurity, Artificial Intelligence (AI), and Digital Transformation strategies."
         },
         {
-            question: "How can I contact technical support?",
-            answer: "You can reach our 24/7 support team via the Contact Us page or email support@nextech.com."
+            question: "Why should I choose NexTech as my partner?",
+            answer: "We are a trusted partner with a 98% Client Satisfaction rate and over 50+ successful projects delivered worldwide by our certified experts."
         },
         {
-            question: "Do you offer mobile app development?",
-            answer: "Yes! We develop cross-platform mobile applications using React Native and Flutter."
+            question: "How do you ensure the security of my data?",
+            answer: "Security is our priority. We implement industry-leading cybersecurity protocols and encrypted cloud integration to protect your business assets."
         },
         {
-            question: "How much does a consultation cost?",
-            answer: "Our initial project consultation is 100% free. We discuss your needs and provide a custom quote."
+            question: "Do you work with startups or only large enterprises?",
+            answer: "Both! We empower emerging startups with scalable solutions and help established enterprises optimize operations for sustainable growth."
         },
         {
-            question: "Where is NexTech located?",
-            answer: "Our headquarters are in Butterworth, Penang, but we serve clients globally."
+            question: "Where is NexTech IT Consulting located?",
+            answer: "We are headquartered in the heart of Malaysia's tech ecosystem (Penang), but we serve clients globally through remote collaboration."
+        },
+        {
+            question: "What is your typical project timeline?",
+            answer: "Timelines vary by complexity, but we pride ourselves on agile delivery. A standard system analysis and solution design typically takes 2-4 weeks."
+        },
+        {
+            question: "Do you provide post-launch support and maintenance?",
+            answer: "Yes. We offer long-term partnerships with continuous maintenance, security updates, and 24/7 technical support."
+        },
+        {
+            question: "What technologies do your developers use?",
+            answer: "Our experts utilize modern stacks including React, Node.js, Python for AI, and secure Cloud platforms (AWS/Azure) to build robust solutions."
+        },
+        {
+            question: "How can I get a quotation for my project?",
+            answer: "It's simple! Visit our 'Contact Us' page to send a message. Our team will review your requirements and provide a free consultation."
         }
     ];
 
