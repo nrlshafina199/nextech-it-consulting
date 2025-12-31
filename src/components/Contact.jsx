@@ -9,7 +9,6 @@ export default function Contact() {
             minHeight: "100vh",
             fontFamily: "'Space Grotesk', sans-serif",
             color: "black",
-            paddingTop: "90px" // To clear your NavBar
         },
         headerSection: {
             backgroundColor: "whitesmoke",
@@ -30,13 +29,30 @@ export default function Contact() {
             margin: "24px auto 0",
         },
         introText: {
-            maxWidth: "800px",
-            margin: "60px auto",
+            margin: "40px 35px 10px",
             fontSize: "20px",
             lineHeight: "1.8",
             color: "dimgray",
             textAlign: "center",
-            padding: "0 24px"
+        },
+        companyInfo: {
+            margin: "70px 0 70px",
+            flex: "1",
+            fontSize: "20px",
+            lineHeight: "1.0",
+            textAlign: "left",
+        },
+        contentRow: {
+            display: "flex",
+            justifyContent: "space-between",
+            gap: "40px",
+            margin: "0 70px",
+            alignItems: "flex-start",
+            flexWrap: "wrap", // responsive
+        },
+        form: {
+            flex: "1",
+            maxWidth: "500px",
         }
     };
 
@@ -80,14 +96,21 @@ export default function Contact() {
         <div style={styles.wrapper}>
 
             {/* Page Header */}
-            <section id="contact" className="px-12 py-20 bg-gray-900 text-gray-100">
-                <h1 className="text-3xl font-bold mb-6 text-cyan-400 text-center">Contact Us</h1>
-                <p className="text-center text-gray-400 mb-10">
-                    Got questions? Send us a message or reach out using the details below.
-                </p>
+            <section style={styles.headerSection}>
+                 <h1 style={styles.mainTitle}>
+                    <span style={{ fontWeight: "800" }}>Contact Us</span>
+                 </h1>
+                 <div style={styles.accentBar} />
+            </section>
 
-                {/* Company Info */}
-                <div className="max-w-lg mx-auto mb-10 text-gray-300 text-center">
+            {/* Intro Text*/}
+            <p style={styles.introText}>
+                 Got questions? Send us a message or reach out using the details below!
+            </p>
+
+            <div style={styles.contentRow}>
+                {/* Company Info*/}
+                <div style={styles.companyInfo}>
                     <p><strong>Email:</strong> nexTechIT@company.com.my</p>
                     <p><strong>Phone:</strong> +6012-3456789</p>
                     <p><strong>Address:</strong> Butterworth, Penang, Malaysia</p>
@@ -95,25 +118,30 @@ export default function Contact() {
                 </div>
 
                 {/* Contact Form */}
-                <form className="max-w-lg mx-auto flex flex-col gap-4" onSubmit={handleSubmit}><input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} className="p-3 rounded-md bg-gray-800 text-gray-100"/>
-                    <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} className="p-3 rounded-md bg-gray-800 text-gray-100"/>
-                    <input type="text" name="subject" placeholder="Subject" value={formData.subject} onChange={handleChange} className="p-3 rounded-md bg-gray-800 text-gray-100"/>
-                    <textarea name="message" placeholder="Message" rows="5" value={formData.message} onChange={handleChange} className="p-3 rounded-md bg-gray-800 text-gray-100"></textarea>
-                    <button type="submit" className="bg-cyan-400 text-gray-900 px-6 py-3 rounded-md hover:bg-cyan-600 transition">Send Message</button>
+                <form style={styles.form} className="flex flex-col gap-4" onSubmit={handleSubmit}>
+                    <p>Name: <span style={{ color: "red" }}>*</span></p>
+                    <input type="text" name="name" placeholder="Enter your name..." value={formData.name} onChange={handleChange} className="p-3 rounded-md bg-gray-800 text-gray-100"/>
+                    <p>Email: <span style={{ color: "red" }}>*</span></p>
+                    <input type="email" name="email" placeholder="Enter your email..." value={formData.email} onChange={handleChange} className="p-3 rounded-md bg-gray-800 text-gray-100"/>
+                    <p>Subject:</p>
+                    <input type="text" name="subject" placeholder="Enter the subject..." value={formData.subject} onChange={handleChange} className="p-3 rounded-md bg-gray-800 text-gray-100"/>
+                    <p>Message: <span style={{ color: "red" }}>*</span></p>
+                    <textarea name="message" placeholder="Enter your message..." rows="5" value={formData.message} onChange={handleChange} className="p-3 rounded-md bg-gray-800 text-gray-100"></textarea>
+                    <button type="submit" className="bg-cyan-400 text-gray-900 px-6 py-3 rounded-md hover:bg-cyan-600 transition">Submit form</button>
                 </form>
+            </div>
 
-                {/* Google Map */}
-                <div className="max-w-4xl mx-auto mt-16">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63550.188459950696!2d100.3686616517208!3d5.434163153495858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304ac5069ac06373%3A0xfd24d9999c7bb46a!2sButterworth%2C%20Penang!5e0!3m2!1sen!2smy!4v1767138074551!5m2!1sen!2smy"
-                        className="w-full h-96 rounded-lg border-0"
-                        allowFullScreen
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                        title="Come Visit Us"
-                    />
-                </div>
-            </section>
+            {/* Google Map */}
+            <div className="max-w-4xl mx-auto mt-16">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63550.188459950696!2d100.3686616517208!3d5.434163153495858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304ac5069ac06373%3A0xfd24d9999c7bb46a!2sButterworth%2C%20Penang!5e0!3m2!1sen!2smy!4v1767138074551!5m2!1sen!2smy"
+                    className="w-full h-96 rounded-lg border-0"
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Come Visit Us"
+                />
+            </div>
         </div>
     );
 }
