@@ -33,7 +33,7 @@ export default function NavBar() {
             width: "100%",
             maxWidth: "1400px",
             margin: "0 auto",
-            padding: "0 40px",
+            padding: "0 20px", // Reduced from 40px for mobile
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
@@ -41,13 +41,12 @@ export default function NavBar() {
         logoContainer: {
             display: "flex",
             alignItems: "center",
-            height: "60px",
+            height: "50px", // Slightly smaller for mobile
         },
         logoImg: {
             height: "100%",
             width: "auto",
             objectFit: "contain",
-
         },
         menuList: {
             display: "flex",
@@ -64,7 +63,7 @@ export default function NavBar() {
                 color: active ? "black" : "gray",
                 textTransform: "uppercase",
                 letterSpacing: "1.5px",
-                padding: "0 25px",
+                padding: "0 20px", // Reduced from 25px
                 height: "90px",
                 display: "flex",
                 alignItems: "center",
@@ -79,6 +78,34 @@ export default function NavBar() {
             fontSize: "28px",
             cursor: "pointer",
             color: "black",
+            padding: "10px",
+        },
+        mobileMenu: {
+            position: "absolute",
+            top: "90px",
+            left: "0",
+            width: "100%",
+            backgroundColor: "white",
+            borderBottom: "2px solid black",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+            maxHeight: "calc(100vh - 90px)",
+            overflowY: "auto",
+        },
+        mobileLink: (path) => {
+            const active = location.pathname === path;
+            return {
+                display: "block",
+                padding: "20px 30px",
+                textDecoration: "none",
+                color: active ? "black" : "gray",
+                fontWeight: active ? "800" : "600",
+                fontSize: "16px",
+                textTransform: "uppercase",
+                letterSpacing: "1px",
+                borderLeft: active ? "5px solid black" : "5px solid transparent",
+                backgroundColor: active ? "whitesmoke" : "white",
+                transition: "all 0.2s ease",
+            };
         }
     };
 
@@ -110,37 +137,25 @@ export default function NavBar() {
                 </ul>
 
                 {/* Mobile Toggle */}
-                <button onClick={() => setIsOpen(!isOpen)} className="md:hidden" style={styles.mobileBtn}>
+                <button
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="md:hidden"
+                    style={styles.mobileBtn}
+                    aria-label="Toggle menu"
+                >
                     {isOpen ? "✕" : "☰"}
                 </button>
             </div>
 
             {/* Mobile Dropdown */}
             {isOpen && (
-                <div style={{
-                    position: "absolute",
-                    top: "90px",
-                    left: "0",
-                    width: "100%",
-                    backgroundColor: "white",
-                    borderBottom: "2px solid black",
-                    padding: "20px 0",
-                    textAlign: "center"
-                }}>
+                <div style={styles.mobileMenu}>
                     {menuItems.map((item) => (
                         <Link
                             key={item.path}
                             to={item.path}
                             onClick={() => setIsOpen(false)}
-                            style={{
-                                display: "block",
-                                padding: "15px",
-                                textDecoration: "none",
-                                color: "black",
-                                fontWeight: "bold",
-                                fontSize: "16px",
-                                textTransform: "uppercase"
-                            }}
+                            style={styles.mobileLink(item.path)}
                         >
                             {item.label}
                         </Link>
