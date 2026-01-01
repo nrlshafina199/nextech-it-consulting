@@ -4,9 +4,8 @@ import building from "../assets/building.jpg";
 export default function HomepageContent() {
     const [hoverIndex, setHoverIndex] = useState(null);
 
-    // Exact styles from your MissionVision reference
     const cardStyle = (isHovered) => ({
-        padding: "40px",
+        padding: "30px 20px",
         borderBottom: "1px solid whitesmoke",
         transition: "all 0.3s ease",
         flex: "1",
@@ -15,7 +14,7 @@ export default function HomepageContent() {
     });
 
     const titleStyle = (isHovered) => ({
-        fontSize: "24px",
+        fontSize: "clamp(18px, 4vw, 24px)",
         fontWeight: isHovered ? "800" : "400",
         color: isHovered ? "black" : "darkgray",
         transition: "all 0.3s ease"
@@ -24,21 +23,23 @@ export default function HomepageContent() {
     const subTextStyle = (isHovered) => ({
         color: isHovered ? "dimgray" : "silver",
         marginTop: "15px",
-        transition: "all 0.3s ease"
+        transition: "all 0.3s ease",
+        fontSize: "clamp(14px, 3vw, 16px)"
     });
 
     return (
-        <section style={{ backgroundColor: "white", padding: "60px 0", fontFamily: "sans-serif" }}>
-            <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "0 20px" }}>
+        <section style={{ backgroundColor: "white", padding: "40px 20px", fontFamily: "sans-serif" }}>
+            <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
 
-                {/* Professional Header Image - Full Color */}
-                <div style={{ marginBottom: "50px", textAlign: "center" }}>
+                <div style={{ marginBottom: "40px", textAlign: "center" }}>
                     <img
                         src={building}
                         alt="NexTech Building"
                         style={{
                             maxWidth: "100%",
-                            height: "300px",
+                            height: "auto",
+                            minHeight: "200px",
+                            maxHeight: "300px",
                             width: "100%",
                             objectFit: "cover",
                             borderRadius: "4px",
@@ -47,48 +48,56 @@ export default function HomepageContent() {
                     />
                 </div>
 
-                {/* Organized Text Content */}
-                <div style={{ marginBottom: "80px" }}>
-                    {/* Main Intro */}
+                <div style={{ marginBottom: "60px" }}>
                     <h2 style={{
-                        fontSize: "28px",
+                        fontSize: "clamp(20px, 5vw, 28px)",
                         fontWeight: "800",
                         color: "black",
                         textAlign: "center",
                         lineHeight: "1.4",
-                        marginBottom: "40px"
+                        marginBottom: "30px",
+                        padding: "0 10px"
                     }}>
                         Welcome to NexTech IT Consulting, your trusted partner in navigating the dynamic landscape of IT consulting and software solutions.
                     </h2>
 
-                    {/* Details Grid */}
                     <div style={{
                         display: "flex",
-                        flexWrap: "wrap",
-                        gap: "40px",
+                        flexDirection: "column",
+                        gap: "30px",
                         borderTop: "1px solid whitesmoke",
-                        paddingTop: "40px"
+                        paddingTop: "30px"
                     }}>
-                        <div style={{ flex: "1", minWidth: "300px" }}>
-                            <p style={{ color: "dimgray", fontSize: "17px", lineHeight: "1.8" }}>
+                        <div>
+                            <p style={{
+                                color: "dimgray",
+                                fontSize: "clamp(15px, 3vw, 17px)",
+                                lineHeight: "1.8",
+                                textAlign: "center"
+                            }}>
                                 Headquartered in the heart of Malaysia's tech ecosystem, NexTech is dedicated to empowering businesses with cutting-edge technologies including <span style={{ color: "black", fontWeight: "600" }}>Cloud Integration, Cybersecurity, Artificial Intelligence, and Digital Transformation.</span>
                             </p>
                         </div>
-                        <div style={{ flex: "1", minWidth: "300px" }}>
-                            <p style={{ color: "dimgray", fontSize: "17px", lineHeight: "1.8" }}>
+                        <div>
+                            <p style={{
+                                color: "dimgray",
+                                fontSize: "clamp(15px, 3vw, 17px)",
+                                lineHeight: "1.8",
+                                textAlign: "center"
+                            }}>
                                 Our certified experts deliver futuristic solutions that optimize operations, enhance security, and drive sustainable growth for startups and enterprises alike.
                             </p>
                         </div>
                     </div>
                 </div>
 
-                {/* Video Section - Full Color */}
-                <div style={{ borderTop: "1px solid whitesmoke", padding: "60px 0", textAlign: "center" }}>
+                <div style={{ borderTop: "1px solid whitesmoke", padding: "40px 0", textAlign: "center" }}>
                     <video
                         controls
                         style={{
-                            maxWidth: "800px",
+                            maxWidth: "100%",
                             width: "100%",
+                            height: "auto",
                             borderRadius: "4px",
                             border: "1px solid whitesmoke",
                             boxShadow: "0 10px 30px rgba(0,0,0,0.05)"
@@ -98,8 +107,12 @@ export default function HomepageContent() {
                     </video>
                 </div>
 
-                {/* Achievements Section */}
-                <div style={{ display: "flex", flexWrap: "wrap", borderTop: "1px solid whitesmoke" }}>
+                <div style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    borderTop: "1px solid whitesmoke",
+                    justifyContent: "center"
+                }}>
                     <div
                         onMouseEnter={() => setHoverIndex(0)}
                         onMouseLeave={() => setHoverIndex(null)}

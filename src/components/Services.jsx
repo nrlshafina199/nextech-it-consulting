@@ -12,7 +12,7 @@ export default function Services() {
         },
         headerSection: {
             backgroundColor: "whitesmoke",
-            padding: "100px 24px",
+            padding: "60px 20px",
             borderBottom: "1px solid lightgray",
         },
         headerContainer: {
@@ -20,7 +20,7 @@ export default function Services() {
             margin: "0 auto",
         },
         mainTitle: {
-            fontSize: "48px",
+            fontSize: "clamp(32px, 5vw, 48px)",
             fontWeight: "300",
             color: "black",
             margin: "0",
@@ -34,31 +34,37 @@ export default function Services() {
         listContainer: {
             maxWidth: "1000px",
             margin: "0 auto",
-            padding: "60px 24px",
+            padding: "40px 20px",
         },
         serviceRow: {
             display: "flex",
-            gap: "40px",
-            padding: "50px 0",
+            gap: "20px",
+            padding: "30px 0",
             borderBottom: "1px solid whitesmoke",
             transition: "all 0.3s ease",
             cursor: "pointer",
         },
-
+        numberIndicator: (isHovered) => ({
+            fontSize: "14px",
+            fontWeight: "900",
+            color: isHovered ? "black" : "lightgray",
+            paddingTop: "10px",
+            minWidth: "30px",
+            flexShrink: 0,
+        }),
         titleNormal: {
-            fontSize: "26px",
+            fontSize: "clamp(18px, 4vw, 26px)",
             fontWeight: "400",
             color: "darkgray",
             transition: "all 0.3s ease",
             marginBottom: "12px",
         },
         descNormal: {
-            fontSize: "18px",
+            fontSize: "clamp(14px, 3vw, 18px)",
             color: "silver",
             lineHeight: "1.6",
             transition: "all 0.3s ease",
         },
-
         titleHover: {
             color: "black",
             fontWeight: "800"
@@ -89,7 +95,6 @@ export default function Services() {
 
     return (
         <div style={styles.wrapper}>
-            {/* Page Header */}
             <section style={styles.headerSection}>
                 <div style={styles.headerContainer}>
                     <h1 style={styles.mainTitle}>
@@ -99,7 +104,6 @@ export default function Services() {
                 </div>
             </section>
 
-            {/* Services List */}
             <main style={styles.listContainer}>
                 {services.map((service, index) => {
                     const isHovered = hoveredIndex === index;
@@ -111,17 +115,11 @@ export default function Services() {
                             onMouseLeave={() => setHoveredIndex(null)}
                             style={styles.serviceRow}
                         >
-                            {/* Vertical Number Indicator */}
-                            <div style={{
-                                fontSize: "14px",
-                                fontWeight: "900",
-                                color: isHovered ? "black" : "lightgray",
-                                paddingTop: "10px"
-                            }}>
+                            <div style={styles.numberIndicator(isHovered)}>
                                 0{index + 1}
                             </div>
 
-                            <div>
+                            <div style={{ flex: 1 }}>
                                 <h2 style={{
                                     ...styles.titleNormal,
                                     ...(isHovered ? styles.titleHover : {})
