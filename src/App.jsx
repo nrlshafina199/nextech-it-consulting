@@ -5,6 +5,7 @@ import About from './components/About';
 import Home from "./components/Home";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
+import FAQ from "./components/FAQ";
 
 // Temporary placeholder pages
 const Placeholder = ({ title }) => (
@@ -27,7 +28,7 @@ export default function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/services" element={<Services />} />
-                <Route path="/faqs" element={<Placeholder title="FAQs" />} />
+                <Route path="/faqs" element={<FAQ />} />
                 <Route path="/contact" element={<Contact />} />
             </Routes>
         </main>
