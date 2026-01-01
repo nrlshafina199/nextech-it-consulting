@@ -8,7 +8,7 @@ export default function Team() {
     const team = [
         { name: "Nur Najihah", role: "Chief Executive Officer (CEO)", photo: najihah, desc: "Leading NexTech's strategic vision and global partnerships." },
         { name: "Farah Mahnisa", role: "Chief Technology Officer (CTO)", photo: farahM, desc: "Driving technical innovation and software architecture." },
-        { name: "Shafina Ashikin", role: "System Analyst", photo: shafina, desc: "Analyzing business requirements for digital solutions." },
+        { name: "Nurul Shafina Ashikin", role: "System Analyst", photo: shafina, desc: "Analyzing business requirements for digital solutions." },
         { name: "Nur Irdina", role: "Security Specialist", photo: irdina, desc: "Cybersecurity and infrastructure protection." },
         { name: "Putri Farah", role: "Developer", photo: Pfarah, desc: "Building modern and responsive web applications." },
     ];
