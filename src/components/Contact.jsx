@@ -89,14 +89,18 @@ export default function Contact() {
             maxWidth: "500px",
             fontSize: "clamp(16px, 3vw, 20px)",
             lineHeight: "1.8",
+            margin: "0 auto",
+            textAlign: "center",
         },
         infoItem: {
             display: 'flex',
             alignItems: 'center',
+            justifyContent: 'center',  // centers horizontally
             gap: '15px',
             marginBottom: '20px',
             flexWrap: 'wrap',
         },
+
         visitUs: {
             margin: "40px 20px 10px",
             fontSize: "clamp(20px, 4vw, 25px)",
@@ -171,7 +175,8 @@ export default function Contact() {
             </p>
 
             <div style={styles.contentRow}>
-                <div style={styles.form}>
+                <form style={styles.form} onSubmit={handleSubmit}>
+
                     <p style={{ marginBottom: "5px" }}>
                         <strong>Name: </strong>
                         <span style={{ color: "red" }}>*</span>
@@ -232,7 +237,7 @@ export default function Contact() {
                             Submit
                         </button>
                     </div>
-                </div>
+                </form>
 
                 <div style={styles.companyInfo}>
                     <div style={styles.infoItem}>
