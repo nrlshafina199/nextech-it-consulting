@@ -33,7 +33,7 @@ export default function NavBar() {
             width: "100%",
             maxWidth: "1400px",
             margin: "0 auto",
-            padding: "0 20px", // Reduced from 40px for mobile
+            padding: "0 20px",
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
@@ -41,18 +41,23 @@ export default function NavBar() {
         logoContainer: {
             display: "flex",
             alignItems: "center",
-            height: "50px", // Slightly smaller for mobile
+            height: "50px",
         },
         logoImg: {
             height: "100%",
             width: "auto",
             objectFit: "contain",
         },
+        // Desktop menu - hidden on mobile
         menuList: {
-            display: "flex",
+            display: "none",
             listStyle: "none",
             margin: 0,
             padding: 0,
+        },
+        // Desktop menu visible on larger screens
+        menuListDesktop: {
+            display: "flex",
         },
         link: (path) => {
             const active = location.pathname === path || hoveredPath === path;
@@ -63,7 +68,7 @@ export default function NavBar() {
                 color: active ? "black" : "gray",
                 textTransform: "uppercase",
                 letterSpacing: "1.5px",
-                padding: "0 20px", // Reduced from 25px
+                padding: "0 20px",
                 height: "90px",
                 display: "flex",
                 alignItems: "center",
@@ -72,6 +77,7 @@ export default function NavBar() {
                 backgroundColor: hoveredPath === path ? "whitesmoke" : "transparent",
             };
         },
+        // Mobile button - visible on mobile only
         mobileBtn: {
             background: "none",
             border: "none",
@@ -79,6 +85,11 @@ export default function NavBar() {
             cursor: "pointer",
             color: "black",
             padding: "10px",
+            display: "block",
+        },
+        // Mobile button hidden on desktop
+        mobileBtnHidden: {
+            display: "none",
         },
         mobileMenu: {
             position: "absolute",
@@ -109,59 +120,83 @@ export default function NavBar() {
         }
     };
 
-    return (
-        <header style={styles.header}>
-            <div style={styles.navWrapper}>
-                <Link to="/" style={styles.logoContainer}>
-                    <img
-                        src={logo}
-                        alt="NexTech Logo"
-                        style={styles.logoImg}
-                    />
-                </Link>
+    // Check if we're on desktop (width >= 768px)
+    const isDesktop = typeof window !== 'undefined' && window.innerWidth >= 768;
 
-                {/* Desktop Links */}
-                <ul className="hidden md:flex" style={styles.menuList}>
-                    {menuItems.map((item) => (
-                        <li key={item.path}>
+    return (
+        <>
+            <style>{`
+                @media (min-width: 768px) {
+                    .desktop-menu {
+                        display: flex !important;
+                    }
+                    .mobile-btn {
+                        display: none !important;
+                    }
+                }
+                @media (max-width: 767px) {
+                    .desktop-menu {
+                        display: none !important;
+                    }
+                    .mobile-btn {
+                        display: block !important;
+                    }
+                }
+            `}</style>
+
+            <header style={styles.header}>
+                <div style={styles.navWrapper}>
+                    <Link to="/" style={styles.logoContainer}>
+                        <img
+                            src={logo}
+                            alt="NexTech Logo"
+                            style={styles.logoImg}
+                        />
+                    </Link>
+
+                    {/* Desktop Links */}
+                    <ul className="desktop-menu" style={styles.menuList}>
+                        {menuItems.map((item) => (
+                            <li key={item.path}>
+                                <Link
+                                    to={item.path}
+                                    onMouseEnter={() => setHoveredPath(item.path)}
+                                    onMouseLeave={() => setHoveredPath(null)}
+                                    style={styles.link(item.path)}
+                                >
+                                    {item.label}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+
+                    {/* Mobile Toggle */}
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="mobile-btn"
+                        style={styles.mobileBtn}
+                        aria-label="Toggle menu"
+                    >
+                        {isOpen ? "✕" : "☰"}
+                    </button>
+                </div>
+
+                {/* Mobile Dropdown */}
+                {isOpen && (
+                    <div style={styles.mobileMenu}>
+                        {menuItems.map((item) => (
                             <Link
+                                key={item.path}
                                 to={item.path}
-                                onMouseEnter={() => setHoveredPath(item.path)}
-                                onMouseLeave={() => setHoveredPath(null)}
-                                style={styles.link(item.path)}
+                                onClick={() => setIsOpen(false)}
+                                style={styles.mobileLink(item.path)}
                             >
                                 {item.label}
                             </Link>
-                        </li>
-                    ))}
-                </ul>
-
-                {/* Mobile Toggle */}
-                <button
-                    onClick={() => setIsOpen(!isOpen)}
-                    className="md:hidden"
-                    style={styles.mobileBtn}
-                    aria-label="Toggle menu"
-                >
-                    {isOpen ? "✕" : "☰"}
-                </button>
-            </div>
-
-            {/* Mobile Dropdown */}
-            {isOpen && (
-                <div style={styles.mobileMenu}>
-                    {menuItems.map((item) => (
-                        <Link
-                            key={item.path}
-                            to={item.path}
-                            onClick={() => setIsOpen(false)}
-                            style={styles.mobileLink(item.path)}
-                        >
-                            {item.label}
-                        </Link>
-                    ))}
-                </div>
-            )}
-        </header>
+                        ))}
+                    </div>
+                )}
+            </header>
+        </>
     );
 }
